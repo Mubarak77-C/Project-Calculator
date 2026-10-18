@@ -127,3 +127,42 @@ appendNumber('5');
 chooseOperator('+');
 appendNumber('3');
 evaluate();
+
+//phase 4: connecting Event Lsitener (THE FRONT END GLUE)-DELEGATION INSTEAD 20 EVENTLISTENR ADDING
+
+// Grab the display element from HTML
+const displayScreen = document.getElementById('display');
+const buttonsGrid = document.querySelector('.buttons-grid');
+
+// Helper to update what the user physically sees on the screen
+const updateDisplay = () => {
+    displayScreen.textContent = displayValue;
+};
+
+// Event Delegation on the container box
+buttonsGrid.addEventListener('click', (event) => {
+    const target = event.target;
+
+    // 1. If they clicked a number button
+    if (target.classList.contains('btn-num')) {
+        appendNumber(target.dataset.num);
+        updateDisplay();
+    }
+
+    // 2. If they clicked an operator button
+    if (target.classList.contains('btn-operator')) {
+        chooseOperator(target.dataset.op);
+    }
+
+    // 3. If they clicked equals
+    if (target.classList.contains('btn-equals')) {
+        evaluate(); // (or call calculateResult())
+        updateDisplay();
+    }
+
+    // 4. If they clicked clear
+    if (target.classList.contains('btn-clear')) {
+        clearCalculator();
+        updateDisplay();
+    }
+});

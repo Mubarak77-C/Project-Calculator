@@ -62,7 +62,7 @@ console.log(operate('/', 10, 0)); // Expected: "Error"
 //phase 2: State Management
 
 let firstNumber = '';
-let currentOperate = '';
+let currentOperator = '';
 let secondNumber = '';
 let displayValue = '0'; //what currently display on screen 
 
@@ -79,3 +79,51 @@ const appendNumber = (number) => {
 
 appendNumber('5'); // Screen should say "5"
 appendNumber('3'); // Screen should say "53"
+
+//## phase 3 Adding Operator, Evaluate, and Clear Logic
+// When user clicks an operator (+, -, *, /)
+const chooseOperator = (op) => {
+    // If we already have a first number and a current operator, 
+    // evaluate what we have so far (allows chaining like 5 + 5 + 5)
+    if (currentOperator !== '' && secondNumber !== '') {
+        evaluate();
+    }
+
+    firstNumber = displayValue;
+    currentOperator = op;
+    displayValue = ''; // Clear screen for the second number
+    console.log(`Saved First Number: ${firstNumber}, Operator: ${currentOperator}`);
+};
+
+// When user clicks equals (=)
+const evaluate = () => {
+    if (currentOperator === '' || firstNumber === '') return;
+    
+    secondNumber = displayValue;
+    
+    // Call our Phase 1 'operate' function!
+    const result = operate(currentOperator, firstNumber, secondNumber);
+    
+    displayValue = String(result);
+    console.log(`Result: ${displayValue}`);
+    
+    // Reset for the next calculation
+    firstNumber = displayValue;
+    currentOperator = '';
+    secondNumber = '';
+};
+
+// When user clicks Clear (AC)
+const clearCalculator = () => {
+    firstNumber = '';
+    currentOperator = '';
+    secondNumber = '';
+    displayValue = '0';
+    console.log("Calculator cleared!");
+};
+
+//console to run test 
+appendNumber('5');
+chooseOperator('+');
+appendNumber('3');
+evaluate();

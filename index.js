@@ -58,3 +58,24 @@ console.log(operate('-', 10, 5)); // Expected: 5
 console.log(operate('*', 10, 5)); // Expected: 50
 console.log(operate('/', 10, 2)); // Expected: 5
 console.log(operate('/', 10, 0)); // Expected: "Error"
+
+//phase 2: State Management
+
+let firstNumber = '';
+let currentOperate = '';
+let secondNumber = '';
+let displayValue = '0'; //what currently display on screen 
+
+// A simple function to simulate pressing a number button
+const appendNumber = (number) => {
+    if (displayValue === '0') {
+        displayValue = number; // Replace the initial 0
+
+    } else {
+        displayValue += number; // Append the number if something is already there
+    }
+    console.log("Current Screen ", displayValue);
+};
+
+appendNumber('5'); // Screen should say "5"
+appendNumber('3'); // Screen should say "53"

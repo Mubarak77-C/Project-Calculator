@@ -3,32 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator Projects</title>
-    <script src="index.js" defer></script>
+    <title>Industrial Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style src="index.js" defer></style>
 </head>
 <body>
-    <h1> CALCULATOR </h1>
+
     <div class="calculator">
-    <!-- Display Box -->
-    <div id="display">0</div>
+        <!-- Screen / Display Box -->
+        <div id="display">0</div>
 
-    <!-- Buttons Grid -->
-    <div class="buttons-grid">
-        <button class="btn-clear">AC</button>
-        <button class="btn-operator" data-op="/">/</button>
-        <button class="btn-operator" data-op="*">*</button>
-        <button class="btn-operator" data-op="-">-</button>
+        <!-- Buttons Grid Box -->
+        <div class="buttons-grid">
+            <button class="btn-clear span-two">AC</button>
+            <button class="btn-operator" data-op="/">÷</button>
+            <button class="btn-operator" data-op="*">×</button>
 
-        <button class="btn-num" data-num="7">7</button>
-        <button class="btn-num" data-num="8">8</button>
-        <button class="btn-num" data-num="9">9</button>
-        <button class="btn-operator" data-op="+">+</button>
+            <button class="btn-num" data-num="7">7</button>
+            <button class="btn-num" data-num="8">8</button>
+            <button class="btn-num" data-num="9">9</button>
+            <button class="btn-operator" data-op="-">-</button>
 
-        <!-- and so on for other numbers... -->
-        
-        <button class="btn-equals">=</button>
+            <button class="btn-num" data-num="4">4</button>
+            <button class="btn-num" data-num="5">5</button>
+            <button class="btn-num" data-num="6">6</button>
+            <button class="btn-operator" data-op="+">+</button>
+
+            <button class="btn-num" data-num="1">1</button>
+            <button class="btn-num" data-num="2">2</button>
+            <button class="btn-num" data-num="3">3</button>
+            <button class="btn-equals" rowspan="2">=</button>
+
+            <button class="btn-num span-two" data-num="0">0</button>
+            <button class="btn-num" data-num=".">.</button>
+        </div>
     </div>
-</div>
-    
+
+    <!-- Link your combined JavaScript file -->
+    <script src="index.js"></script>
 </body>
 </html>
